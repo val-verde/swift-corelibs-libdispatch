@@ -114,7 +114,11 @@ _dispatch_hw_get_config(_dispatch_hw_config_t c)
 			// scheduler cpu affinity.  This matters if the program
 			// is restricted to a subset of the online cpus (eg via numactl).
 			cpu_set_t cpuset;
+                #ifdef __ANDROID__
+			if (sched_getaffinity(0, sizeof(cpu_set_t), &cpuset) == 0)
+                #else
 			if (pthread_getaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset) == 0)
+                #endif
 				return (uint32_t)CPU_COUNT(&cpuset);
 #endif
 			return (uint32_t)sysconf(_SC_NPROCESSORS_ONLN);
