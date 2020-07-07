@@ -141,9 +141,9 @@ target_link_libraries(dispatch PUBLIC
   BlocksRuntime::BlocksRuntime)
 if(CMAKE_SYSTEM_NAME STREQUAL Windows)
   target_link_libraries(dispatch PRIVATE
-    ShLwApi
-    WS2_32
-    WinMM
+    shlwapi
+    ws2_32
+    winmm
     synchronization)
 endif()
 

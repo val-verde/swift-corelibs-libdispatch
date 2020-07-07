@@ -5,10 +5,10 @@
 #include <stdint.h>
 
 #include <winsock2.h>
-#include <Windows.h>
+#include <windows.h>
 #include <crtdbg.h>
 #include <ntstatus.h>
-#include <Shlwapi.h>
+#include <shlwapi.h>
 #include <winternl.h>
 
 #include <io.h>

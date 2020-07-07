@@ -81,7 +81,7 @@ _dispatch_lock_owner(dispatch_lock lock_value)
 
 #elif defined(_WIN32)
 
-#include <Windows.h>
+#include <windows.h>
 
 typedef DWORD dispatch_tid;
 typedef uint32_t dispatch_lock;
