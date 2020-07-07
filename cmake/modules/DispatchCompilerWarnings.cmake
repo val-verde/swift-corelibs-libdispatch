@@ -1,5 +1,5 @@
 
-if("${CMAKE_C_SIMULATE_ID}" STREQUAL "MSVC")
+if(CMAKE_SYSTEM_NAME STREQUAL Windows)
   # TODO: someone needs to provide the msvc equivalent warning flags
 else()
   add_compile_options($<$<OR:$<COMPILE_LANGUAGE:C>,$<COMPILE_LANGUAGE:CXX>>:-Werror>)
