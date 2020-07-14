@@ -43,6 +43,7 @@
 #endif
 #include <fcntl.h>
 #if defined(_WIN32)
+#include <stdio.h>
 #include <time.h>
 #endif
 
