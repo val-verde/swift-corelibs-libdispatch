@@ -32,7 +32,13 @@
 #endif
 
 #if !defined(_WIN32)
+#if defined(__linux__) && \
+    !defined(__ANDROID__) && \
+    !defined(__GLIBC__)
+#include <signal.h>
+#else
 #include <sys/signal.h>
+#endif
 #endif
 
 DISPATCH_ASSUME_NONNULL_BEGIN
