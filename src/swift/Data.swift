@@ -194,7 +194,7 @@ public struct DispatchData : RandomAccessCollection {
 			let copyOffset = range.startIndex > offset ? range.startIndex - offset : 0 // offset of first byte, in this region
 			if copyOffset >= size { return true } // This region is before startIndex
 			let count = Swift.min(rangeSize - copiedCount, size - copyOffset)
-			memcpy(pointer + copiedCount, ptr + copyOffset, count)
+			(pointer + copiedCount).copyMemory(from: ptr + copyOffset, byteCount: count)
 			copiedCount += count
 			return copiedCount < rangeSize
 		}
