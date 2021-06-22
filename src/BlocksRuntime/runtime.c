@@ -480,6 +480,7 @@ static void _Block_byref_release(const void *arg) {
     }
     refcount = byref->flags & BLOCK_REFCOUNT_MASK;
 	os_assert(refcount);
+    (void)refcount;
     if (latching_decr_int_should_deallocate(&byref->flags)) {
         if (byref->flags & BLOCK_BYREF_HAS_COPY_DISPOSE) {
             struct Block_byref_2 *byref2 = (struct Block_byref_2 *)(byref+1);
